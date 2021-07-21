@@ -70,6 +70,8 @@ namespace Restaurante
         {
             int mesa = Getmesa();
             int cantidad = Convert.ToInt32(FrmCantidad.Instancia.GetCantidad());
+
+
             if (mesa == 1)
             {
                 if (Repositorio.Instancia.ListadoOrdenes1.Count >= cantidad)
@@ -116,18 +118,19 @@ namespace Restaurante
 
         private void button1_Click(object sender, EventArgs e)
         {
+                  
+              FrmCantidad.Instancia.Show();
+              if (IsOpen == true)
+              {
+                  LimitarOrden();
+              }
+              if (Error == false)
+              {
+                  this.Hide();
+              }
+              Error = false;
+              IsOpen = true;
             
-            FrmCantidad.Instancia.Show();
-            if (IsOpen == true)
-            {
-                LimitarOrden();
-            }
-            if (Error == false)
-            {
-                this.Hide();
-            }
-            Error = false;
-            IsOpen = true;
         }
         private void FrmRestaurante_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -158,9 +161,6 @@ namespace Restaurante
 
         private void LoadComboBox()
         {
-            ComboBoxItem porDefecto = new ComboBoxItem();
-            porDefecto.Text = "Seleccione una opción";
-            porDefecto.Value = null;
 
             ComboBoxItem Mesa1 = new ComboBoxItem();
             Mesa1.Text = "Mesa 1";
@@ -178,12 +178,12 @@ namespace Restaurante
             Mesa4.Text = "Mesa 4";
             Mesa4.Value = 4;
 
-            CbxMesa1.Items.Add(porDefecto);
+      
             CbxMesa1.Items.Add(Mesa1);
             CbxMesa1.Items.Add(Mesa2);
             CbxMesa1.Items.Add(Mesa3);
             CbxMesa1.Items.Add(Mesa4);
-            CbxMesa1.SelectedItem = porDefecto;
+            CbxMesa1.SelectedItem = Mesa1;
         }
 
        

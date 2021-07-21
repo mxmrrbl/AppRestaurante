@@ -18,13 +18,13 @@ namespace Restaurante
 
         private MantRestaurante mantenimiento;
 
-        private bool IsOpen { set; get; }
+        private bool Error { set; get; }
 
         public FrmOrden()
         {
             InitializeComponent();
             mantenimiento = new MantRestaurante();
-            IsOpen = false;
+            Error = false;
             NumOrden = 1;
             
         }
@@ -81,14 +81,23 @@ namespace Restaurante
 
         private void Agregar2_Click(object sender, EventArgs e)
         {
-            
-            int cantidad;
-            Cantidad = FrmCantidad.Instancia.GetCantidad();
-            cantidad = Convert.ToInt32(Cantidad);
-            Guardar();
-            
-            this.Close();
-           
+
+                Agregar();
+                this.Close();
+
+
+        }
+        private void Agregar()
+        {          
+            if (string.IsNullOrEmpty(TxtNombre.Text))
+            {
+                MessageBox.Show("Debe ingresar el como mínimo el Nombre", "Advertencia");
+                
+            }
+            else
+            {
+                Guardar();
+            }
         }
         private void Guardar()
         {
@@ -118,7 +127,7 @@ namespace Restaurante
         private void LoadComboBox()
         {
             ComboBoxItem porDefecto = new ComboBoxItem();
-            porDefecto.Text = "Seleccione una opción";
+            porDefecto.Text = "Ninguno";
             porDefecto.Value = null;
 
             //Entradas

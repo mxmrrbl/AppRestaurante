@@ -20,11 +20,18 @@ namespace Restaurante
         private void BtmCancelar1_Click(object sender, EventArgs e)
         {
             IsCanceled = true;
-            CloseForm();
+            if (IsCanceled == true)
+            {
+                FrmRestaurante.Instancia.Show();
+            }
+
+            HideForm();
+            
         }
 
-        private void CloseForm()
+        private void HideForm()
         {
+           
             this.Hide();
         }
 
@@ -38,10 +45,38 @@ namespace Restaurante
 
         private void BtmConfirmar_Click(object sender, EventArgs e)
         {
-            FrmOrden frmOrden = new FrmOrden();
-            frmOrden.Show();
-            this.Hide();
-            FrmRestaurante.Instancia.Hide();
+            try
+            {
+                string cantidad = TxtCantidadPersonas.Text;
+                int intCantidad = Convert.ToInt32(TxtCantidadPersonas.Text);
+                if (cantidad == null)
+                {
+                    MessageBox.Show("Debe ingresar una cantidad", "Advertencia");
+                    TxtCantidadPersonas.Clear();
+                    //FrmRestaurante.Instancia.Show();
+                    
+                }
+                if (intCantidad <= 4)
+                {
+                    FrmOrden frmOrden = new FrmOrden();
+                    frmOrden.Show();
+                    this.Hide();
+                    FrmRestaurante.Instancia.Hide();
+                }
+                if (intCantidad > 4)
+                {
+                    MessageBox.Show("No se admiten más de 4 personas por mesa", "Advertencia");
+                    TxtCantidadPersonas.Clear();
+                    //FrmRestaurante.Instancia.Show();
+                    
+                }
+            }catch
+            {
+                MessageBox.Show("Debe ingresar una cantidad numérica", "Advertencia");
+                TxtCantidadPersonas.Clear();
+                //FrmRestaurante.Instancia.Show();
+                
+            }
         }
 
         private void FrmCantidad_Load(object sender, EventArgs e)
@@ -51,7 +86,17 @@ namespace Restaurante
 
         public string GetCantidad() 
         {
-            return TxtCantidadPersonas.Text.ToString();       
+            if (IsCanceled == true)
+            {
+                TxtCantidadPersonas.Text = "1";
+                return TxtCantidadPersonas.Text;
+
+                IsCanceled = false;
+            }
+
+            return TxtCantidadPersonas.Text.ToString();
+            
+            
         }
     }
 }

@@ -60,6 +60,7 @@ namespace Restaurante
                 Limpiar();
                 LoadOrdenes();
                 MessageBox.Show("Se han eliminado las órdenes");
+                LboxOrdenes.Items.Clear();
             }
             if (r == DialogResult.Cancel)
             {

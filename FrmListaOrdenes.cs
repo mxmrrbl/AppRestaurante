@@ -24,21 +24,10 @@ namespace Restaurante
             this.Close();
         }
 
-        private void BtnEliminar_Click(object sender, EventArgs e)
-        {
-            DialogResult r = MessageBox.Show("Seguro que desea Limpiar?, se eliminarán todas las órdes de esta mesa.","Advertencia", MessageBoxButtons.OKCancel);
-            if (r == DialogResult.OK)
-            {
-                MessageBox.Show("Se han eliminado las órdenes");
-            }
-            if (r == DialogResult.Cancel)
-            {
-            }
-        }
-
         private void FrmListaOrdenes_Load(object sender, EventArgs e)
         {
             LoadOrdenes();
+            TxtMesaLista.Text = Convert.ToString(FrmRestaurante.Instancia.Getmesa());
         }
 
         public void LoadOrdenes()
@@ -55,6 +44,26 @@ namespace Restaurante
             }
 
             LboxOrdenes.EndUpdate();
+        }
+
+        public void Limpiar()
+        {
+            int mesa = FrmRestaurante.Instancia.Getmesa();
+            mantenimiento.Limpiar(mesa);
+        }
+
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            DialogResult r = MessageBox.Show("Seguro que desea Limpiar?, se eliminarán todas las órdes de esta mesa.", "Advertencia", MessageBoxButtons.OKCancel);
+            if (r == DialogResult.OK)
+            {
+                Limpiar();
+                LoadOrdenes();
+                MessageBox.Show("Se han eliminado las órdenes");
+            }
+            if (r == DialogResult.Cancel)
+            {
+            }
         }
     }
 }

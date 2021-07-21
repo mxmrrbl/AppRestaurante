@@ -8,10 +8,11 @@ using System.Windows.Forms;
 
 namespace Restaurante
 {
-    public partial class FrmCantidad : Form
+    public sealed partial class FrmCantidad : Form
     {
+        public static FrmCantidad Instancia { get; } = new FrmCantidad();
         public bool IsCanceled { get; set; }
-        public FrmCantidad()
+        private FrmCantidad()
         {
             InitializeComponent();
         }
@@ -24,7 +25,7 @@ namespace Restaurante
 
         private void CloseForm()
         {
-            this.Close();
+            this.Hide();
         }
 
         private void FrmCantidad_FormClosed(object sender, FormClosedEventArgs e)
@@ -39,13 +40,18 @@ namespace Restaurante
         {
             FrmOrden frmOrden = new FrmOrden();
             frmOrden.Show();
-            CloseForm();
+            this.Hide();
             FrmRestaurante.Instancia.Hide();
         }
 
         private void FrmCantidad_Load(object sender, EventArgs e)
         {
 
+        }
+
+        public string GetCantidad() 
+        {
+            return TxtCantidadPersonas.Text.ToString();       
         }
     }
 }

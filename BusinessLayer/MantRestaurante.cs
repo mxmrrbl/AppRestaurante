@@ -65,32 +65,104 @@ namespace BusinessLayer
         {
             if (mesa == 1)
             {
-                Repositorio.Instancia.ListadoOrdenes1.RemoveAt(1);
-                Repositorio.Instancia.ListadoOrdenes1.RemoveAt(2);
-                Repositorio.Instancia.ListadoOrdenes1.RemoveAt(3);
-                Repositorio.Instancia.ListadoOrdenes1.RemoveAt(4);
+                if (Repositorio.Instancia.ListadoOrdenes1.Count == 1)
+                {
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes1.Count == 2)
+                {
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes1.Count == 3)
+                {
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes1.Count == 4)
+                {
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes1.RemoveAt(0);
+                }
 
             }
             if (mesa == 2)
             {
-                Repositorio.Instancia.ListadoOrdenes2.RemoveAt(1);
-                Repositorio.Instancia.ListadoOrdenes2.RemoveAt(2);
-                Repositorio.Instancia.ListadoOrdenes2.RemoveAt(3);
-                Repositorio.Instancia.ListadoOrdenes2.RemoveAt(4);
+                if (Repositorio.Instancia.ListadoOrdenes2.Count == 1)
+                {
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes2.Count == 2)
+                {
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes2.Count == 3)
+                {
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes2.Count == 4)
+                {
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes2.RemoveAt(0);
+                }
             }
             if (mesa == 3)
             {
-                Repositorio.Instancia.ListadoOrdenes3.RemoveAt(1);
-                Repositorio.Instancia.ListadoOrdenes3.RemoveAt(2);
-                Repositorio.Instancia.ListadoOrdenes3.RemoveAt(3);
-                Repositorio.Instancia.ListadoOrdenes3.RemoveAt(4);
+                if (Repositorio.Instancia.ListadoOrdenes3.Count == 1)
+                {
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes3.Count == 2)
+                {
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes3.Count == 3)
+                {
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes3.Count == 4)
+                {
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes3.RemoveAt(0);
+                }
             }
             if (mesa == 4)
             {
-                Repositorio.Instancia.ListadoOrdenes4.RemoveAt(1);
-                Repositorio.Instancia.ListadoOrdenes4.RemoveAt(2);
-                Repositorio.Instancia.ListadoOrdenes4.RemoveAt(3);
-                Repositorio.Instancia.ListadoOrdenes4.RemoveAt(4);
+                if (Repositorio.Instancia.ListadoOrdenes4.Count == 1)
+                {
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes4.Count == 2)
+                {
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes4.Count == 3)
+                {
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                }
+                if (Repositorio.Instancia.ListadoOrdenes4.Count == 4)
+                {
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                    Repositorio.Instancia.ListadoOrdenes4.RemoveAt(0);
+                }
             }
         }
 

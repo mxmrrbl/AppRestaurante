@@ -15,7 +15,7 @@ namespace BusinessLayer
 
         public string Datos
         {
-            get { return $"Cliente: {Nombre};\n Entrada: {Entrada}; Plato fuerte: {Plato}; Bebida: {Bebida}; Postre: {Postre}";  }
+            get { return $"Cliente: {Nombre} | Entrada: {Entrada} | Plato fuerte: {Plato} | Bebida: {Bebida} | Postre: {Postre}";  }
         }
     }
 

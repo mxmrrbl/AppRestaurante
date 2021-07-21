@@ -12,11 +12,21 @@ namespace Restaurante
 {
     public partial class FrmOrden : Form
     {
+        private string Cantidad { set; get; }
+
+        private int NumOrden { set; get; }
+
         private MantRestaurante mantenimiento;
+
+        private bool IsOpen { set; get; }
+
         public FrmOrden()
         {
             InitializeComponent();
             mantenimiento = new MantRestaurante();
+            IsOpen = false;
+            NumOrden = 1;
+            
         }
 
         private void TxtOrden2_TextChanged(object sender, EventArgs e)
@@ -26,8 +36,42 @@ namespace Restaurante
 
         private void FrmOrden_Load(object sender, EventArgs e)
         {
+            
             LoadComboBox();
+            LoadInformation();
+        }
+
+        private void LoadInformation() 
+        {
+            int mesa = FrmRestaurante.Instancia.Getmesa();
+                
+            Cantidad = FrmCantidad.Instancia.GetCantidad();
+
+
+            if (mesa == 1)
+            {
+                NumOrden = Repositorio.Instancia.ListadoOrdenes1.Count + 1;
+
+            }
+            if (mesa == 2)
+            {
+                NumOrden = Repositorio.Instancia.ListadoOrdenes2.Count + 1;
+
+            }
+            if (mesa == 3)
+            {
+                NumOrden = Repositorio.Instancia.ListadoOrdenes3.Count + 1;
+
+            }
+            if (mesa == 4)
+            {
+                NumOrden = Repositorio.Instancia.ListadoOrdenes4.Count + 1;
+
+            }
             TxtMesa2.Text = Convert.ToString(FrmRestaurante.Instancia.Getmesa());
+            TxtOrden2.Text = $"{NumOrden}";
+
+            
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
@@ -37,8 +81,14 @@ namespace Restaurante
 
         private void Agregar2_Click(object sender, EventArgs e)
         {
+            
+            int cantidad;
+            Cantidad = FrmCantidad.Instancia.GetCantidad();
+            cantidad = Convert.ToInt32(Cantidad);
             Guardar();
+            
             this.Close();
+           
         }
         private void Guardar()
         {

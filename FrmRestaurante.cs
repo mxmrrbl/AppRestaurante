@@ -16,9 +16,14 @@ namespace Restaurante
     {
         public static FrmRestaurante Instancia { get; } = new FrmRestaurante();
 
+        public bool IsOpen { set; get; }
+        public bool Error { set; get; }
+
         private FrmRestaurante()
         {
             InitializeComponent();
+            IsOpen = false;
+            Error = false;
         }
         public int Getmesa()
         {
@@ -61,11 +66,68 @@ namespace Restaurante
 
         }
 
+        private void LimitarOrden()
+        {
+            int mesa = Getmesa();
+            int cantidad = Convert.ToInt32(FrmCantidad.Instancia.GetCantidad());
+            if (mesa == 1)
+            {
+                if (Repositorio.Instancia.ListadoOrdenes1.Count >= cantidad)
+                {
+                    MessageBox.Show($"Solo puede agregar {cantidad} órdenes a esta mesa", "Advertencia");
+                    Error = true;
+                    FrmCantidad.Instancia.Hide();
+                }
+
+            }
+            if (mesa == 2)
+            {
+                if (Repositorio.Instancia.ListadoOrdenes2.Count >= cantidad)
+                {
+                    MessageBox.Show($"Solo puede agregar {cantidad} órdenes a esta mesa", "Advertencia");
+                    Error = true;
+                    FrmCantidad.Instancia.Hide();
+                }
+            }
+            if (mesa == 3)
+            {
+                if (Repositorio.Instancia.ListadoOrdenes3.Count >= cantidad)
+                {
+                    MessageBox.Show($"Solo puede agregar {cantidad} órdenes a esta mesa", "Advertencia");
+                    Error = true;
+                    FrmCantidad.Instancia.Hide();
+                }
+            }
+            if (mesa == 4)
+            {
+                if (Repositorio.Instancia.ListadoOrdenes4.Count >= cantidad)
+                {
+                    MessageBox.Show($"Solo puede agregar {cantidad} órdenes a esta mesa", "Advertencia");
+                    Error = true;
+                    FrmCantidad.Instancia.Hide();
+                }
+
+            }
+
+
+            
+        }
+        
+
         private void button1_Click(object sender, EventArgs e)
         {
-            FrmCantidad cantidad = new FrmCantidad();
-            cantidad.Show();
-            this.Hide();
+            
+            FrmCantidad.Instancia.Show();
+            if (IsOpen == true)
+            {
+                LimitarOrden();
+            }
+            if (Error == false)
+            {
+                this.Hide();
+            }
+            Error = false;
+            IsOpen = true;
         }
         private void FrmRestaurante_FormClosed(object sender, FormClosedEventArgs e)
         {
